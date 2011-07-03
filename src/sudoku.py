@@ -1,0 +1,6 @@
+
+class sudoku:
+    pass
+
+#EOF
+
