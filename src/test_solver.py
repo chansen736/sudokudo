@@ -1,6 +1,6 @@
 
 # Test imports
-import SolverTest
+import solvertest
 
 # Module-Under-Test imports
 import solver
@@ -9,10 +9,10 @@ import solver
 import filecmp
 import os.path
 
-class test_solver(SolverTest.SolverTest):
+class test_solver(solvertest.SolverTest):
 
-    simple_puzzle = os.path.join(SolverTest.SolverTest.data_dir, 'puzzle-01-simple')
-    exported_puzzle = os.path.join(SolverTest.SolverTest.tmp_dir, 'exported_puzzle')
+    simple_puzzle = os.path.join(solvertest.SolverTest.data_dir, 'puzzle-01-simple')
+    exported_puzzle = os.path.join(solvertest.SolverTest.tmp_dir, 'exported_puzzle')
 
     def test_creating_object(self):
         solver.Solver()
