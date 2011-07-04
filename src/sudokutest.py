@@ -1,11 +1,11 @@
 
-# Test imports
-import unittest
-
 # ModuleUnderTest imports
 import sudoku
 
-class SudokuTest(unittest.TestCase):
+# Imports
+import sudokudotest
+
+class SudokuTest(sudokudotest.SudokuDoTest):
 
     _sudoku = None
 

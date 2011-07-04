@@ -1,15 +1,13 @@
 
-# Test imports
-import unittest
-
 # ModuleUnderTest imports
 import solver
 
 # Imports
 import os
 import shutil
+import sudokudotest
 
-class SolverTest(unittest.TestCase):
+class SolverTest(sudokudotest.SudokuDoTest):
 
     _solver = None
 

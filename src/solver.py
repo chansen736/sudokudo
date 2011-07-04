@@ -6,7 +6,26 @@ class Solver:
         self._puzzle = sudoku.Sudoku()
     
     def load(self, filename):
-        pass
+        """
+        Reads a puzzle from a file. The file is of the format:
+        
+        <size of puzzle: N>
+        <row1 of puzzle>
+        ...
+        <rowN of puzzle>
+
+        """
+        f_in = open(filename, 'rb')
+        
+        # The first line should be the size of the puzzle
+        puzzle_size = int(f_in.readline())
+
+        # The rest of the lines are the data
+        puzzle_data = f_in.readlines()
+
+        self._puzzle = sudoku.Sudoku(size=puzzle_size, rows=puzzle_data)
+
+        f_in.close() 
 
 
     def export(self, filename):
@@ -15,7 +34,7 @@ class Solver:
         """
 
         f_out = open(filename, 'wb')
-        f_out.write("woof\n")
+        f_out.write(str(self._puzzle))
         f_out.close() 
 
 
