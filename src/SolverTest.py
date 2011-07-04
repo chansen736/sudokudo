@@ -5,6 +5,10 @@ import unittest
 # ModuleUnderTest imports
 import solver
 
+# Imports
+import os
+import shutil
+
 class SolverTest(unittest.TestCase):
 
     _solver = None
@@ -13,8 +17,10 @@ class SolverTest(unittest.TestCase):
     tmp_dir = 'tmp'
 
     def setUp(self):
-        self._solver = solver.solver()
-        #TODO: remove the tmp_dir directory
+        self._solver = solver.Solver()
+        if os.path.exists(self.tmp_dir):
+            shutil.rmtree(self.tmp_dir) 
+        os.mkdir(self.tmp_dir)
 
 #EOF
 

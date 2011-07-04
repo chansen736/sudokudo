@@ -1,5 +1,5 @@
 
-class sudoku:
+class Sudoku:
     pass
 
 #EOF

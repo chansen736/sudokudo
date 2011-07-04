@@ -2,8 +2,6 @@
 To Do:
 
 solver to load a puzzle
- - there's a todo in SolverTest to clean up the tmp directory
- - write a trivial solver.export()
  - write test_exported_file_matches_loaded_file(). this will force you to make the core data structure of the sudoku class and for a solver to make an internal sudoku object.
  - write test_get_puzzle(), which will test solver.get_puzzle(), which will be a string representation of the solved-puzzle-so-far. this can be compared to the initial loaded file
 solver to pretty print an options-remaining puzzle

@@ -8,7 +8,7 @@ import sudoku
 class test_sudoku(SudokuTest.SudokuTest):
 
     def test_creating_objec(self):
-        sudoku.sudoku()
+        sudoku.Sudoku()
 
 #EOF
 
