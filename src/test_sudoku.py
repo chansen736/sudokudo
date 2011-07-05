@@ -50,6 +50,10 @@ class test_sudoku(sudokutest.SudokuTest):
         with self.assertRaises(ValueError):
             sudoku.Sudoku(size=2, rows=["1 2", "2"])
 
-
+    def test_export_has_right_output(self):
+        puzzle = sudoku.Sudoku(size=2, rows=["1 2", "2 1"])
+        exported_data = puzzle.export()
+        self.assertEqual(exported_data, "2\n1 2\n2 1",
+            "Exported puzzle data is wrong.")
 #EOF
 

@@ -34,7 +34,7 @@ class Solver:
         """
 
         f_out = open(filename, 'wb')
-        f_out.write(str(self._puzzle))
+        f_out.write(self._puzzle.export())
         f_out.close() 
 
 
