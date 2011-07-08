@@ -25,9 +25,23 @@ class test_solver(solvertest.SolverTest):
         self.assertTrue(os.path.exists(self.exported_puzzle))
 
     def test_exported_puzzle_matches_loaded_puzzle(self):
+
+        # Load and export a puzzle
         self._solver.load(self.simple_puzzle) 
         self._solver.export(self.exported_puzzle)
-        self.assertTrue(filecmp.cmp(self.simple_puzzle, self.exported_puzzle),
+
+        # Read the original file (for comparison)
+        file = open(self.simple_puzzle, 'rb')
+        original_data = file.read()
+        file.close()
+
+        # Read the exported file (for comparison)
+        file = open(self.exported_puzzle, 'rb')
+        exported_data = file.read()
+        file.close()
+
+        # Test the two sets of data
+        self.assertEqual(original_data, exported_data,
             "The exported file doesn't match the original.")
         
 #EOF

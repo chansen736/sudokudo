@@ -46,7 +46,7 @@ class Sudoku:
             data.append(" ".join(map(str, row)))
 
         # The result is joined by newlines
-        return "\n".join(data)
+        return "\n".join(data) + "\n"
      
  
 #EOF
