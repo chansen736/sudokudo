@@ -38,5 +38,13 @@ class Solver:
         f_out.close() 
 
 
+    def getCurrentPuzzleString(self):
+        """
+        Returns a string representing the solved portion of the puzzle.
+        """
+        
+        return ""
+
+
 #EOF
 

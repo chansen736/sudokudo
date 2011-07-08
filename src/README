@@ -1,8 +1,7 @@
 
 To Do:
 
-solver to load a puzzle
- - write test_get_puzzle(), which will test solver.get_puzzle(), which will be a string representation of the solved-puzzle-so-far. this can be compared to the initial loaded file
+solver to print a solved-so-far puzzle
 solver to pretty print an options-remaining puzzle
 solver to check a region
 solver to apply a rule

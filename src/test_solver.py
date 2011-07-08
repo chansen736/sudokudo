@@ -43,6 +43,18 @@ class test_solver(solvertest.SolverTest):
         # Test the two sets of data
         self.assertEqual(original_data, exported_data,
             "The exported file doesn't match the original.")
+
+    def test_get_current_puzzle_string(self):
+        self._solver.load(self.simple_puzzle)
+        puzzle_string = self._solver.getCurrentPuzzleString()
+
+        file = open(self.simple_puzzle_as_string)
+        correct_puzzle_string = file.read()
+        file.close()
+
+        self.assertEqual(puzzle_string, correct_puzzle_string,
+            "The solver gave the wrong puzzle string.")
+
         
 #EOF
 
