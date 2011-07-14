@@ -13,6 +13,7 @@ class test_solver(solvertest.SolverTest):
 
     simple_puzzle = os.path.join(solvertest.SolverTest.data_dir, 'puzzle-01-simple')
     exported_puzzle = os.path.join(solvertest.SolverTest.tmp_dir, 'exported_puzzle')
+    simple_puzzle_as_string = os.path.join(solvertest.SolverTest.data_dir, 'puzzle-01-simple-string')
 
     def test_creating_object(self):
         solver.Solver()
@@ -44,7 +45,7 @@ class test_solver(solvertest.SolverTest):
         self.assertEqual(original_data, exported_data,
             "The exported file doesn't match the original.")
 
-    def test_get_current_puzzle_string(self):
+    def test_get_current_puzzle_string_gives_right_string(self):
         self._solver.load(self.simple_puzzle)
         puzzle_string = self._solver.getCurrentPuzzleString()
 

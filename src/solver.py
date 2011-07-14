@@ -43,7 +43,7 @@ class Solver:
         Returns a string representing the solved portion of the puzzle.
         """
         
-        return ""
+        return str(self._puzzle)
 
 
 #EOF
