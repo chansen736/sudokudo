@@ -15,7 +15,7 @@ class Sudoku:
         self._validateRows()
  
         # Now that the basic data is validated, we can compute additional values
-        self._square_side = int(size ** .05)
+        self._square_side = int(size ** 0.5)
 
 
     def _validateRows(self):
@@ -94,20 +94,60 @@ class Sudoku:
         n = self._size
 
         # Build the horizontal lines
-        horizontal_line = ['+' for x in range(m + 2)]
-        dashes = '-'.join(['-' for x in range(m + 1)])
-        horizontal_line = dashes.join(horizontal_line) + "\n"
+        horizontal_line = ['+' for x in range(m + 1)]
+        dashes = '-'.join(['-' for x in range(m)])
+        horizontal_line = dashes.join(horizontal_line)
 
+        #
         # Build the rows
-        row = ['|' for x in range(m + 2)]
-        spaces = ' '.join([' ' for x in range(m + 1)])
-        row = spaces.join(row)
-        row_box = "\n".join([row for x in range(m+1)]) + "\n"
+        #
+
+        # Final_parts will aggregate the rows
+        final_parts = [horizontal_line]
+
+        # Use an m x m double-loop to loop through the rows
+        for index1 in range(m):
+            rows = []
+
+            for index2 in range(m):
+                current_row = index1 * m + index2
+                
+                # From here, we'll build the row by looping through the portion 
+                # of each row that fits within a box
+                box_rows = []
+
+                for index3 in range(m):
+
+                    # Grab the portion of the current row that fits in this box
+                    current_slice = self._rows[current_row][index3*m:index3*m+m]
+
+                    # Make a string out of it, separated by spaces
+                    values = " ".join([str(x) for x in current_slice])
+
+                    # Replace 0's with spaces, since they represent unknown 
+                    # squares
+                    values = values.replace("0", " ")
+
+                    # Save the created row
+                    box_rows.append(values)
+
+                # Combine the created box rows with bars (as graphics), and save
+                # it to the list of rows
+                row = '|' + '|'.join(box_rows) + '|'
+                rows.append(row) 
+
+            # Combine the rows within this box into a big "box string"
+            box = "\n".join(rows)
+
+            # Then add the box string and a separator line
+            final_parts.append(box)
+            final_parts.append(horizontal_line)
 
         # Combine it all
-        final_string = row_box.join([horizontal_line for x in range(m + 2)])
+        
+        final_string = "\n".join(final_parts)
 
-        return final_string.strip()
+        return final_string
 
 
 #EOF

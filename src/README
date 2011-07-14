@@ -1,8 +1,8 @@
 
 To Do:
 
-solver to print a solved-so-far puzzle
 solver to pretty print an options-remaining puzzle
+- generate the solver's options data structure
 solver to check a region
 solver to apply a rule
 

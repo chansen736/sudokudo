@@ -25,15 +25,19 @@ class test_sudoku(sudokutest.SudokuTest):
 
     def test_constructor_stores_data_correctly(self):
         puzzle = sudoku.Sudoku(size=len(self.ROWS_4), rows=self.ROWS_4)
+
         self.assertEqual(puzzle._size, 4,
             "Puzzle isn't storing size correctly.")
+        
+        self.assertEqual(puzzle._square_side, 2,
+            "Puzzle isn't storing square side correctly.")
         
         # Rows should be stored as a a matrix of the values in the original 
         # string
         self.assertEqual(puzzle._rows, [ [int(x) for x in row.split()]
                                          for row in self.ROWS_4],
             "Puzzle isn't storing rows correctly.")  
-   
+
 
     def test_constructor_validates_rows(self):
         # Test values above range
@@ -120,7 +124,7 @@ class test_sudoku(sudokutest.SudokuTest):
 |2 1|4 3|
 |4 3|2 1|
 +---+---+
-""", "The puzzle doesn't str() properly."
+""".strip(), "The puzzle doesn't str() properly."
  )
 
 
