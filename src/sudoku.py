@@ -1,3 +1,4 @@
+import math
 
 class Sudoku:
 
@@ -12,6 +13,9 @@ class Sudoku:
         for row in rows:
             self._rows.append(map(int, row.split()))
         self._validateRows()
+ 
+        # Now that the basic data is validated, we can compute additional values
+        self._square_side = size ** .05
 
 
     def _validateRows(self):
@@ -70,6 +74,15 @@ class Sudoku:
     def __str__(self):
         """
         Prints the puzzle in an easy-to-read way. Only works for sizes < 10.
+
+        Should look like:
+        +---+---+
+        |1 2|3 4|
+        |3 4|1 2|
+        +---+---+
+        |2 1|4 3|
+        |4 3|2 1|
+        +---+---+
         """
         
         if self._size > 9:
