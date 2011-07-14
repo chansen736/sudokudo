@@ -15,7 +15,7 @@ class Sudoku:
         self._validateRows()
  
         # Now that the basic data is validated, we can compute additional values
-        self._square_side = size ** .05
+        self._square_side = int(size ** .05)
 
 
     def _validateRows(self):
@@ -89,7 +89,25 @@ class Sudoku:
             return ("<puzzle has size '%s', which is too large to display>"
                 %self._size)
 
-        return "" 
+        # Do some shortcut creation
+        m = self._square_side
+        n = self._size
+
+        # Build the horizontal lines
+        horizontal_line = ['+' for x in range(m + 2)]
+        dashes = '-'.join(['-' for x in range(m + 1)])
+        horizontal_line = dashes.join(horizontal_line) + "\n"
+
+        # Build the rows
+        row = ['|' for x in range(m + 2)]
+        spaces = ' '.join([' ' for x in range(m + 1)])
+        row = spaces.join(row)
+        row_box = "\n".join([row for x in range(m+1)]) + "\n"
+
+        # Combine it all
+        final_string = row_box.join([horizontal_line for x in range(m + 2)])
+
+        return final_string.strip()
 
 
 #EOF
